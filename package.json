@@ -1,15 +1,16 @@
 {
-  "name": "myproject",
+  "name": "MovieSearch",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Clemens Pilz",
+  "license": "all right reserved",
   "devDependencies": {
     "css-loader": "^6.7.3",
     "sass": "^1.57.1",

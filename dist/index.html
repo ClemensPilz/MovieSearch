@@ -5,16 +5,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Project</title>
+
+
+  <style>
+    img {
+      max-width: 100vw;
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="heading">If this text is blue, it's working!
-    <div class="test">This should be green</div>
-  </div>
+  <button id="fetch">Fetch</button>
+<div id="output"></div>
+
+<script>
+    let output = document.getElementById("output");
+
+  async function getMovie() {
+    fetch("https://api.themoviedb.org/3/movie/550?api_key=842edf5aa8d511e033aa2536e59e3fb4")
+    .then(resp => resp.json())
+    .then(resp => {
+        let title = resp.original_title;
+        let release = resp.release_date;
+        let imageURL = "https://image.tmdb.org/t/p/original" + resp.poster_path;
+        output.innerHTML = ' ' + title + ", " + release + " <br>"
+          + '<img src="' + imageURL + '">';
+    })
+  }
 
 
-  <div class="test">This should be red</div>
+  document.getElementById("fetch").addEventListener("click", getMovie)
+
+</script>
   
   <script src="./bundle.js"></script>
 
