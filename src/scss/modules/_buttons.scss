@@ -1,0 +1,12 @@
+.button{
+    display:inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $mainYellow;
+    background-color: $mainBlue;
+    padding: .8rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border: .125rem solid $mainYellow;
+    border-radius: 30px;
+}
