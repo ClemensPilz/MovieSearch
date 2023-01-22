@@ -1,2 +1,3 @@
 import '../scss/styles.scss';
-import { getMovie } from "./fetch.js";
+import { getRandom } from "./fetch.js";
+window.getRandom = getRandom;

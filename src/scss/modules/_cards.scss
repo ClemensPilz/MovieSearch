@@ -1,0 +1,17 @@
+.card {
+    position: relative;
+    margin-top: 1rem;
+    border: 1px solid yellow;
+    border-radius: 30px;
+    overflow: hidden;
+    color: $mainBlue;
+    padding-top: 1rem;
+    text-align: center;
+    background-color: $mainLight;
+
+    img {
+        width: 100%;
+        display: block;
+        margin-top: .5rem;
+    }
+}

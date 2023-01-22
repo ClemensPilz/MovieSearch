@@ -1,27 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get random movie suggestions</title>
+
 </head>
+
 <body>
-<div class="title-header">
-    <div class="title-headline">movie.finder</div>
-</div>
+    <div class="title-header">
+        <div class="title-headline">movie.finder</div>
+    </div>
 
-<main>
-    
-    <div class="title">whacha wachin?</div>
-    
-    <div class="title title-sm title-light">Get random movie suggestions</div>
-    
-</main>
+    <main>
 
-   
-    
+        <div class="title">whacha wachin?</div>
+
+
+
+        <div class="title title-sm title-light">Get random movie suggestions</div>
+
+        <br>
+
+        <div class="button" id="again">
+            <a href="#">Try it again</a>
+        </div>
+
+        <div id="container"></div>
+
+        <br>
+
+        <div class="button" id="seeMore">
+            <a>See more</a>
+        </div>
+
+    </main>
+
     <script src="../bundle.js"></script>
+    <script>
 
+        let target = document.querySelector('#container');
+        let i = 0;
+
+        let button = document.querySelector("#again");
+        button.addEventListener("click", () => {
+            target.innerHTML = "";
+            window.getRandom(28, target, 5);
+        });
+
+        window.getRandom(28, target, 5);
+
+        let more = document.getElementById("seeMore");
+        more.addEventListener("click", () => {
+            window.getRandom(28, target, 5);
+        })
+    </script>
 </body>
+
 </html>
