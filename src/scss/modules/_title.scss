@@ -1,9 +1,8 @@
 .title-img {
     position: relative;
-    top: 0;
+    z-index: 1;
     width: 100%;
     min-height:100%;
-    z-index: 1;
 }
 
 .title-content {
@@ -15,8 +14,8 @@
 }
 
 .title-header {
-    position: relative;
-    width: 100vw;
+    width: 100%;
+    min-width: 400px;
     height: 6.25rem;
     background-color: $mainBlue;
     display: flex;
