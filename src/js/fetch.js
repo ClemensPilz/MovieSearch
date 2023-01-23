@@ -9,7 +9,7 @@ export function getRandomURL(id) {
   let sortNum = Math.floor(Math.random() * (sort.length));
 
   //Select randomly from result pages
-  let pageNumber = Math.floor(Math.random() * 50);
+  let pageNumber = Math.floor(Math.random() * 50) + 1;
 
   //Concatenate URL for query
   return 'https://api.themoviedb.org/3/discover/movie?api_key=842edf5aa8d511e033aa2536e59e3fb4&language=en-US&sort_by=' + sort[sortNum] + '&include_adult=false&with_genres=' + id + '&page=' + pageNumber;
@@ -48,7 +48,7 @@ async function addRandom(url, target, count, done) {
             + '<img src="' + imageURL + '">';
           if (!theDiv.innerHTML.includes("null")) {
             target.appendChild(theDiv);
-            target.addEventListener("click", () => window.open(webPath));
+            theDiv.addEventListener("click", () => window.open(webPath));
             count--;
           }
         }
