@@ -30,7 +30,7 @@ async function addRandom(url, target, count, done) {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-
+        console.log(res);
         //Select random movie from page
         let i = Math.floor(Math.random() * res.results.length);
 
@@ -38,6 +38,7 @@ async function addRandom(url, target, count, done) {
         if (!done.includes(i)) {
           done.push(i);
           //Append movie details to target
+          let webPath = "https://www.themoviedb.org/movie/" + res.results[i].id;
           let title = res.results[i].original_title;
           let release = res.results[i].release_date;
           let imageURL = "https://image.tmdb.org/t/p/original" + res.results[i].poster_path;
@@ -47,6 +48,7 @@ async function addRandom(url, target, count, done) {
             + '<img src="' + imageURL + '">';
           if (!theDiv.innerHTML.includes("null")) {
             target.appendChild(theDiv);
+            target.addEventListener("click", () => window.open(webPath));
             count--;
           }
         }
