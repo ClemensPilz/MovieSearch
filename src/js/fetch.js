@@ -5,11 +5,11 @@
 export async function getRandom(id, target, count) {
 
   //Select randomly from the available methods to sort the results
-  let sort = ['popularity.asc', 'popularity.desc', 'release_date.asc', 'release_date.desc', 'revenue.asc', 'revenue.desc', 'primary_release_date.asc', 'primary_release_date.desc', 'original_title.asc', 'original_title.desc', 'vote_average.asc', 'vote_average.desc', 'vote_count.asc', 'vote_count.desc'];
+  let sort = ['popularity.desc', 'release_date.desc', 'revenue.desc', 'primary_release_date.desc', 'vote_average.desc', 'vote_count.desc'];
   let sortNum = Math.floor(Math.random() * (sort.length));
 
   //Select randomly from result pages
-  let pageNumber = Math.floor(Math.random() * 101);
+  let pageNumber = Math.floor(Math.random() * 50);
 
   //Concatenate URL for query
   let url = 'https://api.themoviedb.org/3/discover/movie?api_key=842edf5aa8d511e033aa2536e59e3fb4&language=en-US&sort_by=' + sort[sortNum] + '&include_adult=false&with_genres=' + id + '&page=' + pageNumber;
