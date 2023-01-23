@@ -50,9 +50,7 @@ async function addRandom(url, target, count, done) {
             count--;
           }
         }
-
         return { count: count, done: done };
-
       })
       .then((res) => resolve(res));
   })

@@ -10,9 +10,16 @@
     border: .125rem solid $mainYellow;
     border-radius: 30px;
     user-select: none;
+    
+    &:hover {
+        color: $mainLight;
+        border: .125rem solid $mainLight;
+    }
+
 
     a {
         color: inherit;
         text-decoration: inherit;
     }
+
 }

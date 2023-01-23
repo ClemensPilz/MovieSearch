@@ -19,3 +19,9 @@ main {
     margin-left: .7rem;
     margin-right: .7rem;
 }
+
+.main-center {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}

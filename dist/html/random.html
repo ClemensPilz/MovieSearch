@@ -14,7 +14,7 @@
         <div class="title-headline">movie.finder</div>
     </div>
 
-    <main>
+    <main class="main-center">
 
         <div class="title">whacha wachin?</div>
 
@@ -24,7 +24,7 @@
 
         <br>
 
-        <div class="button" id="again">
+        <div class="button button-center" id="again">
             <a href="#">Try it again</a>
         </div>
 
@@ -61,6 +61,15 @@
             let url = window.getRandomURL(28);
             window.callAddRandom(url, target, 5);
         })
+
+        function reload() {
+            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                let url = window.getRandomURL(28);
+                window.callAddRandom(url, target, 5);
+            }
+        }
+
+        window.addEventListener("scroll",  reload);
     </script>
 </body>
 
