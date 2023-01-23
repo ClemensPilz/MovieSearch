@@ -1,8 +1,8 @@
 // Task: Add error handling.
+// Task: Refactor code -> split functions into smaller, more specific functions
 
-
-//Generates a random query-url from a genre-id, then calls addRandom to select random movies from that result and add them as cards to a target html-element.
-export async function getRandom(id, target, count) {
+//Generates a random query-url from a genre-id
+export function getRandomURL(id) {
 
   //Select randomly from the available methods to sort the results
   let sort = ['popularity.desc', 'release_date.desc', 'revenue.desc', 'primary_release_date.desc', 'vote_average.desc', 'vote_count.desc'];
@@ -12,17 +12,19 @@ export async function getRandom(id, target, count) {
   let pageNumber = Math.floor(Math.random() * 50);
 
   //Concatenate URL for query
-  let url = 'https://api.themoviedb.org/3/discover/movie?api_key=842edf5aa8d511e033aa2536e59e3fb4&language=en-US&sort_by=' + sort[sortNum] + '&include_adult=false&with_genres=' + id + '&page=' + pageNumber;
+  return 'https://api.themoviedb.org/3/discover/movie?api_key=842edf5aa8d511e033aa2536e59e3fb4&language=en-US&sort_by=' + sort[sortNum] + '&include_adult=false&with_genres=' + id + '&page=' + pageNumber;
+}
+
+//Calls addRandom for 'count' times
+export async function callAddRandom(url, target, count) {
 
   let obj = await addRandom(url, target, count, []);
-  console.log(obj);
   while (obj.count > 0) {
     obj = await addRandom(url, target, obj.count, obj.done)
   }
-
-
 }
 
+//Calls API-URL and inserts results into target. On resolve returns count-- if successful and array containing inserted movies
 async function addRandom(url, target, count, done) {
   return new Promise((resolve) => {
     fetch(url)

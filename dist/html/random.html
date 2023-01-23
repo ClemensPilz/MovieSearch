@@ -42,19 +42,24 @@
     <script>
 
         let target = document.querySelector('#container');
-        let i = 0;
 
         let button = document.querySelector("#again");
         button.addEventListener("click", () => {
             target.innerHTML = "";
-            window.getRandom(28, target, 5);
+            let url = window.getRandomURL(28);
+            window.callAddRandom(url, target, 5);
         });
 
-        window.getRandom(28, target, 5);
+        window.addEventListener("load", () => {
+            target.innerHTML = "";
+            let url = window.getRandomURL(28);
+            window.callAddRandom(url, target, 5);
+        });
 
         let more = document.getElementById("seeMore");
         more.addEventListener("click", () => {
-            window.getRandom(28, target, 5);
+            let url = window.getRandomURL(28);
+            window.callAddRandom(url, target, 5);
         })
     </script>
 </body>
